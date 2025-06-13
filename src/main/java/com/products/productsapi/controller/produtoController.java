@@ -21,13 +21,12 @@ public class produtoController {
     //Método para salvar um produto.
     @PostMapping
     public ProdutoModel salvar(@RequestBody ProdutoModel produto){
-        System.out.println("O produto foi rcebido: " + produto);
         //RequestBody diz pra o spring qeu o metodo salvar vai vim do Body da requisição.
         //gerando um id.
         var id = UUID.randomUUID().toString();
         produto.setId(id);
-        return produtoRepository.save(produto);
-
+        produtoRepository.save(produto);
+        return produto;
     }
     @GetMapping("{id}")
     public ProdutoModel obterPorId(@PathVariable("id") String id) {
