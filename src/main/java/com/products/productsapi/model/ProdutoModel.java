@@ -11,15 +11,10 @@ import jakarta.persistence.Table;
 public class ProdutoModel {
 
     @Id
-    @Column(name = "id")
     private String id;
-    @Column
     private String nome;
-    @Column
     private String descricao;
-    @Column
     private double preco;
-    @Column
     public String getId() {
         return id;
     }
