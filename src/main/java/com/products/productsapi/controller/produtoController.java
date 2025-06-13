@@ -26,8 +26,8 @@ public class produtoController {
         //gerando um id.
         var id = UUID.randomUUID().toString();
         produto.setId(id);
-        produtoRepository.save(produto);
-        return produto;
+        return produtoRepository.save(produto);
+
     }
     @GetMapping("{id}")
     public ProdutoModel obterPorId(@PathVariable("id") String id) {
