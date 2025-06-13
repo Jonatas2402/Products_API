@@ -1,11 +1,25 @@
 package com.products.productsapi.model;
-//POJO -> Plain Old Java Object
-public class ProdutoModel {
-    private String id;
-    private String nome;
-    private String descricao;
-    private double preco;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+//POJO -> Plain Old Java Object
+@Entity
+@Table(name = "produto")
+public class ProdutoModel {
+
+    @Id
+    @Column(name = "id")
+    private String id;
+    @Column
+    private String nome;
+    @Column
+    private String descricao;
+    @Column
+    private double preco;
+    @Column
     public String getId() {
         return id;
     }

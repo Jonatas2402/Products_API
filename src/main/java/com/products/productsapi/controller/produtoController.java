@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class produtoController {
     //Método para salvar um produto.
     @PostMapping
-    public void salvar(@RequestBody ProdutoModel produto){
+    public ProdutoModel salvar(@RequestBody ProdutoModel produto){
         System.out.println("O produto foi rcebido: " + produto);
         //RequestBody diz pra o spring qeu o metodo salvar vai vim do Body da requisição.
+        return produto;
     }
 }
