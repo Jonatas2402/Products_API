@@ -43,9 +43,6 @@ public class produtoController {
     public void atualiza(@PathVariable("id") String id, @RequestBody ProdutoModel produto) {
         produto.setId(id);
         produtoRepository.save(produto);
-        /*Utilizando o mesmo método id para atualizar o produto.
-        quando o produto vem com o id o spring já sabe que deve atualizar o produto.
-         */
 
     }
     @GetMapping
