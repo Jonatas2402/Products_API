@@ -4,6 +4,7 @@ import com.products.productsapi.model.ProdutoModel;
 import com.products.productsapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,8 +33,24 @@ public class produtoController {
     public ProdutoModel obterPorId(@PathVariable("id") String id) {
         return produtoRepository.findById(id).orElse(null);
     }
+
     @DeleteMapping("{id}")
     public void deletaPorId (@PathVariable("id") String id) {
         produtoRepository.deleteById(id);
+    }
+    @PutMapping("{id}")
+
+    public void atualiza(@PathVariable("id") String id, @RequestBody ProdutoModel produto) {
+        produto.setId(id);
+        produtoRepository.save(produto);
+        /*Utilizando o mesmo método id para atualizar o produto.
+        quando o produto vem com o id o spring já sabe que deve atualizar o produto.
+         */
+
+    }
+    @GetMapping
+    public List<ProdutoModel> busca(@RequestParam("nome") String nome){
+        return produtoRepository.findByNome(nome);
+
     }
 }
