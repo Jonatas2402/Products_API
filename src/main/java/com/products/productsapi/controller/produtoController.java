@@ -19,7 +19,6 @@ public class produtoController {
         this.produtoRepository = produtoRepository;
     }
 
-    //Método para salvar um produto.
     @PostMapping
     public ProdutoModel salvar(@RequestBody ProdutoModel produto){
         //RequestBody diz pra o spring qeu o metodo salvar vai vim do Body da requisição.
